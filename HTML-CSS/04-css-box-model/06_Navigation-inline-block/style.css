@@ -1,0 +1,36 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    margin: 60px 90px;
+}
+
+nav {
+    display: inline-block;
+}
+
+ul {
+    display: inline-block;
+    margin-left: 100px;
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    width: 80px;
+}
+
+nav h1 {
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(43, 187, 43);
+}
+
+h2 {
+    font-weight: 400;
+}
