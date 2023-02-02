@@ -1,0 +1,32 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    margin: 25px 50px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(51, 51, 51);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+article {
+    max-width: 780px;
+}
+
+img {
+    width: 600px;
+}
+
+aside p {
+    font-size: small;
+}
+
+li {
+    padding-left: 20px;
+}
