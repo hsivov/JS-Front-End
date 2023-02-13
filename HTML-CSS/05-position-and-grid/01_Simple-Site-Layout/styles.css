@@ -11,10 +11,10 @@ body {
     grid-template-areas: 
     "head head head head head"
     "head head head head head"
-    "side content content content content"
-    "side content content content content"
-    "side content content content content"
-    "side content content content content"
+    "side main main main main"
+    "side main main main main"
+    "side main main main main"
+    "side main main main main"
     "foot foot foot foot foot";
     gap: 16px;
 }
@@ -27,8 +27,17 @@ aside {
     grid-area: side;
 }
 
+aside>ul>li {
+    list-style-type: none;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
 main {
-    grid-area: content;
+    grid-area: main;
 }
 
 footer {

@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(238, 238, 238);
+    margin: 0;
+}
+
+.viewport {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.card__content {
+    padding: 0 30px;
+}
+
+.btn {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+a {
+    background-color: rgb(0, 153, 0);
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 4px;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    font-size: 1.3em;
+    line-height: 1.2;
+}
