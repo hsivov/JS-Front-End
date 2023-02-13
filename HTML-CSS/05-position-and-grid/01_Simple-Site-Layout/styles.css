@@ -1,0 +1,36 @@
+body > * {
+    background-color: rgb(181, 216, 255);
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas: 
+    "head head head head head"
+    "head head head head head"
+    "side content content content content"
+    "side content content content content"
+    "side content content content content"
+    "side content content content content"
+    "foot foot foot foot foot";
+    gap: 16px;
+}
+
+header {
+    grid-area: head;
+}
+
+aside {
+    grid-area: side;
+}
+
+main {
+    grid-area: content;
+}
+
+footer {
+    grid-area: foot;
+}
