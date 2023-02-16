@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish&display=swap"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="POST">
+            <h1>Registration Form</h1>
+            <div class="name">
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input id="first-name" class="textbox" name="first-name" type="text">
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input id="last-name" class="textbox" name="last-name" type="text">
+                </div>
+            </div>
+            <label for="email">Email</label>
+            <input id="email" class="textbox" name="email" type="email">
+            <label for="password">Password</label>
+            <input id="passwd" class="textbox" name="password" type="password">
+            <label for="confirm-password">Confirm Password</label>
+            <input id="confirm-passwd" class="textbox" name="confirm-password" type="password">
+            <div class="chkbox">
+                <input id="terms" type="checkbox" name="terms">
+                <label for="terms">I accept the Terms of Use & Privacy Policy.</label>
+            </div>
+
+            <button class="btn">Register Now</button>
+        </form>
+    </div>
+</body>
+</html>

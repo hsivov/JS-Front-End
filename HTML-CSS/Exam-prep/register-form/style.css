@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+    font-family: "Mulish", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(60, 60, 60);
+    margin: 40px auto;
+}
+
+body {
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 50vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    box-shadow: 10px 10px 20px 2px rgba(0,0,0,0.6);
+    padding: 40px;
+    background-image: url('images/form-background.png');
+    background-size: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+    color: grey;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.name {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.textbox {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #ccc ;
+}
+
+button {
+    display: block;
+    margin: 25px auto;
+    border: none;
+    background-color: #ae3c33;
+    color: white;
+    padding:10px 25px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
