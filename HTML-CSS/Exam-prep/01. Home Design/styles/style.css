@@ -1,0 +1,81 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courgette', cursive;
+    background-color: #f5f5f5;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header .heading {
+    width: 320px;
+    margin: 0 auto;
+    letter-spacing: 3px;
+}
+
+.header .title {
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.header .subtitle {
+    text-align: right;
+    color: #cb2027;
+}
+
+.section {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.section .container {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+}
+
+.container .card {
+    width: 400px;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.card .img {
+    margin-bottom: 1rem;
+}
+
+.card .content {
+    padding: 1.5rem;
+}
+
+.card .content p{
+    margin-bottom: 5rem;
+    min-height: 5rem;
+}
+
+.card .content a {
+    text-decoration: none;
+    color: #000;
+}
+
+.fas {
+    color: #cb2027;
+}
+
+hr {
+    color: #cb2027;
+    margin-bottom: 1rem;
+}
