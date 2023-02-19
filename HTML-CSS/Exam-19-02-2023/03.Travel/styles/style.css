@@ -1,0 +1,146 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+:root {
+    --button-bg: #360510;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* GLOBAL */
+
+.btn {
+    border: none;
+    background-color: var(--button-bg);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 25px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.head {
+    position: relative;
+    height: 70vh;
+}
+
+.head .img-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.head .wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.head header {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head .navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.head .navbar ul li {
+    margin-left: 2rem;
+}
+
+.head .title {
+    margin-top: 10rem;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.head .subtitle {
+    font-size: 1.75rem;
+    font-weight: normal;
+    margin-bottom: 2.5rem;
+}
+
+.head .bottom {
+    margin-bottom: 3rem;
+}
+
+article {
+    margin-bottom: 4rem;
+}
+
+article h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+article h4 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 4rem;
+}
+
+article .container {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+article .container .card {
+    width: 24rem;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+article .container .card-img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+article .container .card .card-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+article .container .card .card-btn {
+    display: block;
+    margin: 2rem auto;
+    background-color: transparent;
+    border: 1px solid grey;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+}
+
+.footer .content {
+    padding-top: 2rem;
+    width: 70%;
+    height: 14rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer p{
+    margin-bottom: 1rem;
+}
