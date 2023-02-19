@@ -19,6 +19,10 @@
         flex-direction: column;
     }
 
+    .home-main .section-container .home-cards-container {
+        gap: 10px;
+    }
+
     .home-main .section-container .home-cards-container .category-card-image {
         width: 260px;
         height: 260px;
