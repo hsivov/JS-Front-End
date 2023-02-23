@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="world-cup-news">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/HTML-CSS/01-html-introduction/10_WorldCupNews/world-cup-news.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
