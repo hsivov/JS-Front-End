@@ -1,24 +1,27 @@
 function sortCatalogue(input) {
 
-    let catalogue = [];
+    let catalogue = {};
     for (const inputElement of input) {
-        let [productName, productPrice] = inputElement.split(' : ');
-        let product = {};
-        product["product"] = productName;
-        product["price"] = Number(productPrice);
-        catalogue.push(product);
+        let key = inputElement.charAt(0);
+
+        if (catalogue.hasOwnProperty(key)) {
+            catalogue[key].push(inputElement);
+        } else {
+            catalogue[key] = [inputElement];
+        }
     }
 
-    let sortedCatalogue = catalogue.sort((o1, o2) => o1.product.localeCompare(o2.product));
+    let sorted = Object.keys(catalogue).sort().reduce((obj, k) => {
+        obj[k] = catalogue[k];
+        return obj;
+    }, {});
 
-    let group = {};
-    let groupCatalogue = [];
-    for (const sortedCatalogueElement of sortedCatalogue) {
-        let letter = sortedCatalogueElement.product.toUpperCase().charAt(0);
-        group[letter] = sortedCatalogueElement;
-        groupCatalogue.push(group);
-    }
-    console.log(groupCatalogue);
+    Object.entries(sorted)
+        .forEach(([key, value]) => {
+            console.log(key);
+            value.sort((a, b) => a.localeCompare(b));
+            value.forEach((v) => console.log(`  ${v.split(' : ')[0]}: ${v.split(' : ')[1]}`))
+        })
 }
 
 sortCatalogue(
