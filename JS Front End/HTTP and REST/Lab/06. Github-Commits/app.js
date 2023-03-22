@@ -6,7 +6,7 @@ async function loadCommits() {
 
     const response = await fetch(`${BASE_URL}${username}/${repo}/commits`);
     const data = await response.json();
-
+    commits.innerHTML = '';
     try {
         data.forEach(({commit}) => {
             const li = document.createElement('li');

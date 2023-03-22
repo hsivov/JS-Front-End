@@ -10,11 +10,10 @@ function loadRepos() {
         .then((repos) => {
             repos
                 .forEach((repo) => {
-                    const {full_name, html_url} = repo;
                     const li = document.createElement('li');
                     const anchor = document.createElement('a');
-                    anchor.setAttribute('href', html_url);
-                    anchor.textContent = full_name;
+                    anchor.setAttribute('href', repo.html_url);
+                    anchor.textContent = repo.full_name;
                     li.appendChild(anchor);
                     repoList.appendChild(li);
                 });
