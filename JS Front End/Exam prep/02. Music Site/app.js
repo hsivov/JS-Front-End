@@ -1,18 +1,18 @@
-window.addEventListener('load', solve);
+window.addEventListener('DOMContentLoaded', solve);
 
 function solve() {
     const genre = document.getElementById('genre');
     const name = document.getElementById('name');
     const author = document.getElementById('author');
     const date = document.getElementById('date');
-    const addBtn = document.getElementById('add-btn');
+
     const allHits = document.querySelector('#all-hits .all-hits-container');
     const savedContainer = document.querySelector('#saved-hits .saved-container');
     const totalLikesElement = document.querySelector('.likes > p');
     const form = document.querySelector('form');
     let totalLikes = 0;
 
-    addBtn.addEventListener('click', addSongHandler);
+    form.addEventListener('submit', addSongHandler);
 
     function addSongHandler(event) {
         event.preventDefault();
