@@ -54,13 +54,8 @@ function loadGrocery() {
     async function addProduct(event) {
         event.preventDefault();
 
-        let allInputsAreValid = true;
-            Object.values(inputDOMSelectors)
-            .forEach((input) => {
-                if (input.value === '') {
-                    allInputsAreValid = false;
-                }
-            });
+        const allInputsAreValid = Object.values(inputDOMSelectors)
+            .every((input) => input.value !== '');
 
         if (!allInputsAreValid) {
             return;
