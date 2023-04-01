@@ -4,42 +4,150 @@ function loadGrocery() {
     const URL = 'http://localhost:3030/jsonstore/grocery/'
     const form = document.querySelector('form');
     const tbody = document.getElementById('tbody');
+    const inputDOMSelectors = {
+        product: document.getElementById('product'),
+        count: document.getElementById('count'),
+        price: document.getElementById('price')
+    };
 
-    form.addEventListener('submit', loadData);
+    const addBtn = document.getElementById('add-product');
+    const updateBtn = document.getElementById('update-product');
+    const loadAllBtn = document.getElementById('load-product');
 
-    async function loadData(e) {
+    addBtn.addEventListener('click', addProduct);
+    updateBtn.addEventListener('click', onUpdateProduct);
+    loadAllBtn.addEventListener('click', loadAllProducts);
+
+    let products = {};
+    let currentProduct = {};
+    let id = null;
+
+    async function loadAllProducts(e) {
         e.preventDefault();
 
+        tbody.innerHTML = '';
         const response = await fetch(URL);
-        if (response.status !== 200) {
-            throw new Error('Response error');
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message);
         }
 
         const data = await response.json();
 
         Object.values(data).forEach((dataObject) => {
-            const {product, count, price} = dataObject;
-            const tableRow = document.createElement('tr');
-            const name = document.createElement('td');
-            name.classList.add('name');
-            name.textContent = product.toString();
-            const countProduct = document.createElement('td');
-            countProduct.classList.add('count-product');
-            countProduct.textContent = count.toString();
-            const productPrice = document.createElement('td');
-            productPrice.classList.add('product-price');
-            productPrice.textContent = price.toString();
-            const action = document.createElement('td');
-            action.classList.add('btn');
-            const updateBtn = document.createElement('button');
-            const deleteBtn = document.createElement('button');
-            updateBtn.classList.add('update');
-            updateBtn.textContent = 'Update';
-            deleteBtn.classList.add('delete');
-            deleteBtn.textContent = 'Delete';
-            action.append(updateBtn, deleteBtn);
-            tableRow.append(name, countProduct, productPrice, action);
-            tbody.appendChild(tableRow);
+            const {product, count, price, _id} = dataObject;
+            const tableRow = createElement('tr', tbody, null, _id);
+            createElement('td', tableRow, product, null, ['name']);
+            createElement('td', tableRow, count, null, ['count-product']);
+            createElement('td', tableRow, price, null, ['product-price']);
+            const action = createElement('td', tableRow, null, null, ['btn']);
+            const updateBtn = createElement('button', action, 'Update', null, ['update']);
+            const deleteBtn = createElement('button', action, 'Delete', null, ['delete']);
+
+            updateBtn.addEventListener('click', updateProduct);
+            deleteBtn.addEventListener('click', deleteProduct);
+
+            products[_id] = dataObject;
         });
+    }
+
+    async function addProduct(event) {
+        event.preventDefault();
+
+        let allInputsAreValid = true;
+            Object.values(inputDOMSelectors)
+            .forEach((input) => {
+                if (input.value === '') {
+                    allInputsAreValid = false;
+                }
+            });
+
+        if (!allInputsAreValid) {
+            return;
+        }
+
+        const {product, count, price} = inputDOMSelectors;
+        await fetch(URL, {
+            method: 'POST',
+            body: JSON.stringify({
+                product: product.value,
+                count: count.value,
+                price: price.value
+            })
+        });
+        await loadAllProducts(event);
+        form.reset();
+    }
+
+    function updateProduct() {
+        id = this.parentElement.parentElement.id;
+        currentProduct = Object.values(products)
+            .find((p) => p._id === id);
+
+        for (const key in inputDOMSelectors) {
+            inputDOMSelectors[key].value = currentProduct[key];
+        }
+
+        addBtn.disabled = true;
+        updateBtn.disabled = false;
+    }
+
+    async function onUpdateProduct(event) {
+        event.preventDefault();
+
+
+        const payload = {};
+        for (const key in inputDOMSelectors) {
+            payload[key] = inputDOMSelectors[key].value;
+        }
+
+        await fetch(URL + id,{
+            method: 'PATCH',
+            body: JSON.stringify(payload)
+        });
+        await loadAllProducts(event);
+        form.reset();
+        addBtn.disabled = false;
+        updateBtn.disabled = true;
+    }
+
+    async function deleteProduct(event) {
+        id = this.parentElement.parentElement.id;
+        await fetch(URL + id, {
+            method: 'DELETE'
+        });
+        await loadAllProducts(event);
+    }
+
+    function createElement(tagName, parentNode, content, id, classes, attributes) {
+        const htmlElement = document.createElement(tagName);
+
+        if (content && tagName === 'input') {
+            htmlElement.value = content;
+        }
+
+        if (content && tagName !== 'input') {
+            htmlElement.textContent = content;
+        }
+
+        if (parentNode) {
+            parentNode.appendChild(htmlElement);
+        }
+
+        if (id) {
+            htmlElement.id = id;
+        }
+
+        if (classes) {
+            htmlElement.classList.add(...classes);
+        }
+
+        if (attributes) {
+            for (const key in attributes) {
+                htmlElement.setAttribute(key, attributes[key]);
+            }
+        }
+
+        return htmlElement;
     }
 }
