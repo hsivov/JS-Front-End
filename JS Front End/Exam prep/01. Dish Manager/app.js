@@ -16,7 +16,6 @@ function solve() {
     const finished = document.getElementById('finished');
     const progressCount = document.getElementById('progress-count');
     let count = 0;
-    let task = {};
 
     submitBtn.addEventListener('click', onSubmit);
 
@@ -35,19 +34,24 @@ function solve() {
         editBtn.addEventListener('click', editTaskHandler);
         completeBtn.addEventListener('click', finishTaskHandler);
 
-        for (const key in inputDOMSelectors) {
-            task[key] = inputDOMSelectors[key].value;
-        }
-
         count++;
         progressCount.textContent = count.toString();
         form.reset();
 
         function editTaskHandler() {
-            for (const taskKey in task) {
-                inputDOMSelectors[taskKey].value = task[taskKey];
-            }
-            this.parentNode.remove();
+            const currentTask = this.parentNode;
+
+            const [firstName, lastName] = currentTask.querySelector('article > h4').textContent.split(' ');
+            const [gender, age] = currentTask.querySelector('article > p:nth-child(2)').textContent.split(', ');
+            const description = currentTask.querySelector('article > p:nth-child(3)').textContent.replace('Dish description: ', '');
+
+            inputDOMSelectors.firstName.value = firstName;
+            inputDOMSelectors.lastName.value = lastName;
+            inputDOMSelectors.gender.value = gender;
+            inputDOMSelectors.age.value = age;
+            inputDOMSelectors.task.value = description;
+
+            currentTask.remove();
             count--;
             progressCount.textContent = count.toString();
         }
