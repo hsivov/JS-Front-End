@@ -40,13 +40,18 @@ function horseRacing(input) {
 
     function rage(arguments) {
         const [horse] = arguments;
+        const indexOfHorse = positions.indexOf(horse);
 
-        if (horse === positions[positions.length - 1] && horse === positions[positions.length - 2]) {
-
+        if (indexOfHorse === positions.length - 2) {
+            positions.splice(indexOfHorse, 1);
+            positions.push(horse);
+            console.log(`${horse} rages 2 positions ahead.`);
+        } else if (indexOfHorse < positions.length - 2) {
+            positions.splice(indexOfHorse, 1);
+            positions.splice(indexOfHorse + 2, 0, horse);
+            console.log(`${horse} rages 2 positions ahead.`);
         } else {
-            const raged = positions.splice(positions.indexOf(horse), 1)[0];
-            positions.push(raged);
-            console.log(`${horse} rages 2 positions ahead.`)
+            console.log(`${horse} rages 2 positions ahead.`);
         }
     }
 
